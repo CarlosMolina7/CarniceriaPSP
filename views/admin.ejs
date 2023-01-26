@@ -1,0 +1,126 @@
+<%- include('cabecera', {titulo: 'Administración'}) -%>
+
+<div class="container ">
+  <br><br>
+  <div class="row">
+    <div class="row">
+      <div class="z-depth-5 col s12 green" style='display: <%= usu_hecho %>'>
+        <p class="">Modificacion Correcta</p>
+      </div>
+    </div>
+  <form class="col s12" method='post' action='crearUsuario'>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="col s6">
+        <h2> Crear Usuarios </h2>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <input id="usuario" name='usuario' type="text" class="validate">
+        <label for="usuario">Usuario</label>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <input id="password" name='password' type="password" class="validate">
+        <label for="password">Password</label>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    <div class="row">
+      
+      
+      
+        <label>
+          <input class="with-gap" name="group1" value="3" type="radio" checked />
+          <span>Admin</span>
+        </label>
+      
+      
+        <label>
+          <input class="with-gap" name="group1" value="2"type="radio" />
+          <span>User</span>
+        </label>
+      
+      
+        <label>
+          <input class="with-gap" value="1" name="group1" type="radio"  />
+          <span>Sin permisos</span>
+        </label>
+      
+      
+      <div class="col s3"></div>
+    </div>
+    <div class="input-field col s4"></div>
+    <div class="input-field col s4">
+    <input type="submit" value='Crear Usuario' class="waves-effect waves-light purple lighten-1 btn">
+    </div>
+    <div class="input-field col s4"></div>
+  </form>
+  <form class="col s12" method='post' action='cambiarUsuario'>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="col s6">
+        <h2> Modificar Usuario </h2>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <input id="Modificarusuario" name='usuario' type="text" class="validate">
+        <label for="Modificarusuario">Usuario</label>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <input id="Modificarpassword" name='password' type="password" class="validate">
+        <label for="Modificarpassword">Nueva Contraseña</label>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    <div class="input-field col s4"></div>
+    <div class="input-field col s4">
+    <input type="submit" value='Modificar Contraseña' class="waves-effect waves-light purple lighten-1 btn">
+    </div>
+    <div class="input-field col s4"></div>
+  </form>
+
+  <form class="col s12" method='post' action='borrarUsuario'>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="col s6">
+        <h2> Borrar Usuario </h2>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    <div class="row">
+      <div class="col s3"></div>
+      <div class="input-field col s6">
+        <input id="Borrarusuario" name='usuario' type="text" class="validate">
+        <label for="Borrarusuario">Usuario</label>
+      </div>
+      <div class="col s3"></div>
+    </div>
+    
+    <div class="input-field col s4"></div>
+    <div class="input-field col s4">
+    <input type="submit" value='Borrar Usuario' class="waves-effect waves-light purple lighten-1 btn">
+    </div>
+    <div class="input-field col s4"></div>
+
+  </form>
+
+  </div>
+</div>
+
+<%- include('pie') -%>

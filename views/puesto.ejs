@@ -1,0 +1,74 @@
+<%- include('cabecera', {titulo: 'Puesto' }) -%>
+    <div class="container">
+        <div class="section">
+            <div class="row">
+                <div class="col s12 m6">
+                    <h2 class="center-align">Turno actual </h2>
+
+
+                    <h2 id="actual" class="center-align">
+                        <%= numCarnicero%>
+                    </h2>
+                </div>
+
+
+
+                <div class="col s12 m6">
+                    <h2 class="center-align">
+                        Tu turno
+                    </h2>
+                    <h2 class="center-align">
+                        <%= turno%>
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <%- include('pie') -%>
+        <script>
+            let cuantos = 0;
+            var turnoCarnicero = 0;
+            let socket = new WebSocket("ws://localhost:8080/puesto");
+
+
+
+            socket.onopen = function (e) {
+                // En este caso no se hace nada
+                /* cuantos++
+                 socket.send({"cuantos":cuantos})*/
+                //document.getElementById("total").innerHTML += 0;
+            };
+            socket.onmessage = function (event) {
+                console.log(event.data)
+                if (event.data > 0)
+                    turnoCarnicero = event.data
+                document.getElementById("actual").innerHTML = turnoCarnicero
+                /* const mensajes = JSON.parse(event.data)
+                 let html = ''
+                 for (let n = 0; n < mensajes.length; n++) {
+                     const mensaje = mensajes[n]
+                     html += "<p><b>" + mensaje.usuario + "</b>: " + mensaje.mensaje
+                         + "</p>";
+                 }*/
+                //document.getElementById('mensajes').innerHTML = event.data;
+            };
+
+
+            socket.onclose = function (event) {
+                if (event.wasClean) {
+                    alert(`[onclose] Conexión cerrada limpiamente, code=$
+{event.code} reason=${event.reason}`);
+                } else {
+                    // Servidor apagado o sin red
+                    alert('[onclose] La conexión se ha perdido');
+                }
+            };
+            socket.onerror = function (error) {
+                alert(`[onerror] ${error.message}`);
+            };
+
+        </script>
